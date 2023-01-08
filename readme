@@ -1,7 +1,4 @@
-Usun DoneList i ToDoList.
-Utworz List.tsx ktory bedzie filtrowal taski przez ich status.
-Zrob propsy w home dla List m.in. Ikona, Tytul, Status.
-Powodzenia 
+Task structure
 
 Task
 {

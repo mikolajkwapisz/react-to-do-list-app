@@ -1,0 +1,30 @@
+import React from 'react'
+import './home.css'
+import { List} from '../../../components/index'
+import { TaskType } from '../../../types/types'
+
+
+interface HomeProps {
+  tasks: TaskType[]
+}
+
+
+
+const Home: React.FC<HomeProps> = ( {tasks} ) => {
+  console.log(tasks)
+  return (
+    <main className='home main__margin'>
+      <div className="home__tables">
+        { /* If tasksStatus is true then tasks are still active*/} 
+        <List 
+          tasks={tasks}
+          tasksRequiredStatus = {true}/>
+        <List 
+          tasks={tasks}
+          tasksRequiredStatus = {false}/>
+      </div>
+    </main>
+  )
+}
+
+export default Home

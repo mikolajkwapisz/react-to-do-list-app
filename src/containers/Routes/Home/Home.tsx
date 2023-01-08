@@ -10,7 +10,7 @@ interface HomeProps {
 
 
 
-const Home: React.FC<HomeProps> = ( {tasks} ) => {
+const Home= ( {tasks}: HomeProps ) => {
   console.log(tasks)
   return (
     <main className='home main__margin'>
@@ -18,10 +18,12 @@ const Home: React.FC<HomeProps> = ( {tasks} ) => {
         { /* If tasksStatus is true then tasks are still active*/} 
         <List 
           tasks={tasks}
-          tasksRequiredStatus = {true}/>
+          tasksRequiredStatus = {true}
+        />
         <List 
           tasks={tasks}
-          tasksRequiredStatus = {false}/>
+          tasksRequiredStatus = {false}
+        />
       </div>
     </main>
   )

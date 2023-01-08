@@ -1,32 +1,49 @@
 import React from 'react'
 import './list.css'
 import { TaskType } from '../../types/types'
-import { BsClipboard, BsClipboardCheck } from 'react-icons/bs'
+import {FiClipboard, FiCheckSquare} from 'react-icons/fi'
 import Task from '../Task/Task'
 
-interface listProps {
+interface ListProps {
     tasks: TaskType[],
     tasksRequiredStatus: boolean
 }
 
-const List: React.FC<listProps> = ( {tasks, tasksRequiredStatus}) => {
+const List= ( {tasks, tasksRequiredStatus}: ListProps) => {
   return (
     <>
         {
             tasksRequiredStatus ? (
                 <div className='list__active list'>
                     <div className='list__active--title list__title'>
-                        <BsClipboard />
+                        <FiClipboard />
                         <p>To-Do</p>
                     </div>
-                    Active
+                    <div className="list__active--tasks list__tasks">
+                        { tasks.map( task => (
+                            <>
+                                {task.status === tasksRequiredStatus && ( <Task task = {task}/>) 
+                            }
+                            </>
+                        ))
+
+                        }
+                    </div>
                 </div>
             ):
             (
                 <div className='list__done list'>
                     <div className='list__done--title list__title'>
-                        <BsClipboardCheck />
+                        <FiCheckSquare />
                         <p>Done</p>
+                    </div>
+                    <div className='list__done--tasks list__tasks'>
+                    { tasks.map( task => (
+                            <>
+                                {task.status === tasksRequiredStatus && ( <Task task ={task}/>) 
+                            }
+                            </>
+                        )) }
                     </div>
                 </div>
             )

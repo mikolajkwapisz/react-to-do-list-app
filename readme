@@ -1,13 +1,12 @@
 Task structure
 
-Task
 {
-	id,
-	title,
-	currentDay,
-	category,
-	priority,
-	difficulty,
-	endDay,
-	status
-}
+    id: 1,
+    title: 'Math homework',
+    currentDay: 'Monday',
+    category: 'Study',
+    priority: 'High',
+    difficulty: 2,
+    endDay: 'Thursday',
+    status: true
+  },

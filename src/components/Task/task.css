@@ -1,0 +1,34 @@
+.task{
+    background-color: #99AAb5    ;
+    margin: 1rem;
+    border-radius: 15px;
+    padding: 1rem;
+
+
+    display: flex;
+    flex-direction: column;
+}
+
+.task--title{
+    margin-left: 0.3rem;
+    font-size: 1.5rem;
+    font-family: 'dm-sans-regular';
+    color: var(--nav-bg-secondary)
+}
+
+.task__info--status{
+    padding: 0.25rem;
+}
+
+.task--title {
+    margin-bottom: 1rem;
+}
+
+.task__info--status {
+    display: flex;
+    align-items: center;
+}
+
+.list__tasks ul {
+    list-style-type: none;
+}

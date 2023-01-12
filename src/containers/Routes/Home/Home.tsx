@@ -11,7 +11,6 @@ interface HomeProps {
 
 
 const Home= ( {tasks}: HomeProps ) => {
-  console.log(tasks)
   return (
     <main className='home main__margin'>
       <div className="home__tables">

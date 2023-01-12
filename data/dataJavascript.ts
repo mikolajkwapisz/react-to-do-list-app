@@ -1,22 +1,13 @@
-type taskElement = {
-    id: number,
-    title: string,
-    currentDay: string,
-    category: string,
-    priority: string,
-    difficulty: string,
-    endDay: string,
-    status: boolean
-}
+import { TaskType } from "../src/types/types"
 
- const items: taskElement[] = [
+ const items: TaskType[] = [
   {
     id: 1,
-    title: 'Math homework',
+    title: 'Math homeworka aisdjoandoai sdnaoisdn aosdin ',
     currentDay: 'Monday',
     category: 'Study',
     priority: 'High',
-    difficulty: 'Medium',
+    difficulty: 2,
     endDay: 'Thursday',
     status: true
   },
@@ -27,7 +18,7 @@ type taskElement = {
     currentDay: 'Monday',
     category: 'Fitness',
     priority: 'Medium',
-    difficulty: 'Medium',
+    difficulty: 2,
     endDay: 'Tuesday',
     status: true
   },
@@ -38,7 +29,7 @@ type taskElement = {
     currentDay: 'Monday',
     category: 'Study',
     priority: 'Low',
-    difficulty: 'Low',
+    difficulty: 1,
     endDay: 'Wednesday',
     status: false
   },

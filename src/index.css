@@ -17,21 +17,23 @@
     font-size: 16px;
 
     /* Aplication Colors */
-    --bg-color: #2C43DD;
-
+    --bg-color: #2C2F33;
+    /* --bg-color: #2C43DD; */
+    
+    --color-grey: #ececec;
     --color-black: #000;
     --color-dark-blue: #2B1887;
-    --color-light-blue: #D5CCFF;
+    --color-light-grey: #99AAb5;
     --color-white: #F4F2FF;
-    --priority-color-red: #E42C5F;
-    --priority-color-yellow: #ECB800;
-    --priority-color-blue: #2D41A7;
+    --priority-color-high: #E42C5F;
+    --priority-color-medium: #ECB800;
+    --priority-color-low: #2D41A7;
     --priority-color-grey: #D9D9D9;
 
     /* Navbar Colors*/
     --nav-text-primary: #b6b6b6;
     --nav-text-secondary: #ececec;
-    --nav-bg-primary: #23232e;
+    --nav-bg-primary: #23272A;
     --nav-bg-secondary: #141418;
 
 }

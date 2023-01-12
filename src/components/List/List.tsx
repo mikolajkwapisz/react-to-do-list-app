@@ -20,14 +20,16 @@ const List= ( {tasks, tasksRequiredStatus}: ListProps) => {
                         <p>To-Do</p>
                     </div>
                     <div className="list__active--tasks list__tasks">
-                        { tasks.map( task => (
-                            <>
-                                {task.status === tasksRequiredStatus && ( <Task task = {task}/>) 
-                            }
-                            </>
-                        ))
-
-                        }
+                        <ul>
+                            { tasks.map( task => (
+                                   <li key={task.id}>
+                                    {task.status === tasksRequiredStatus && ( 
+                                    <Task task ={task} />
+                                   ) 
+                               }
+                               </li>
+                                )) }
+                        </ul>
                     </div>
                 </div>
             ):
@@ -38,12 +40,17 @@ const List= ( {tasks, tasksRequiredStatus}: ListProps) => {
                         <p>Done</p>
                     </div>
                     <div className='list__done--tasks list__tasks'>
-                    { tasks.map( task => (
-                            <>
-                                {task.status === tasksRequiredStatus && ( <Task task ={task}/>) 
-                            }
-                            </>
-                        )) }
+                        <ul>
+                            { tasks.map( task => (
+                                    <li key={task.id}>
+                                        {task.status === tasksRequiredStatus && ( 
+                                        <Task task ={task}
+                                        
+                                        />) 
+                                    }
+                                    </li>
+                                )) }
+                        </ul>
                     </div>
                 </div>
             )

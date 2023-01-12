@@ -4,7 +4,7 @@ export interface TaskType {
     currentDay: string,
     category: string,
     priority: string,
-    difficulty: string,
+    difficulty: number,
     endDay: string,
     status: boolean
 }

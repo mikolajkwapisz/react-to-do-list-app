@@ -1,6 +1,6 @@
 
 .list {
-    background-color: var(--color-light-blue);
+    background-color: var(--nav-text-secondary);
     border-radius: 16px;
     
     display: flex;
@@ -22,7 +22,8 @@
 .list__title *{
     font-size: 2rem;
     margin-right: 1.5rem;
-    color: var(--color-dark-blue);
+    color: var(--color-black);
+    user-select: none;
 }
 
 .list__title svg {

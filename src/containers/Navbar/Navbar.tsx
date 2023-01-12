@@ -14,14 +14,14 @@ const Navbar = () => {
         <li className="navbar__nav--list">
           <Link to="/" className="navbar__nav--list--link">
             <AiFillHome 
-              style={{ color: 'var(--color-light-blue)'}}/>
+              style={{ color: 'avr(--color-light-grey)'}}/>
             <p>List</p>
           </Link>
         </li>
         <li className="navbar__nav--list">
           <Link to="/add" className="navbar__nav--list--link">
             <BsPencilFill 
-              style={{ color: 'var(--color-light-blue)'}}/>
+              style={{ color: 'var(--color-light-grey)'}}/>
             <p>Add task</p>
           </Link>
         </li>
@@ -29,7 +29,7 @@ const Navbar = () => {
           <div className="navbar__nav--list--link">
             {/* DELETE ALL LIST*/}
             <MdDeleteForever 
-              style={{ color: 'var(--color-light-blue)'}}/>
+              style={{ color: 'var(--color-light-grey)'}}/>
             <p>Clear tasks</p>
           </div>
         </li>
@@ -38,7 +38,7 @@ const Navbar = () => {
             {isLogged ? (
               <>
                 <FaLock 
-                  style={{ color: 'var(--color-light-blue)'}}/>
+                  style={{ color: 'var(--color-light-grey)'}}/>
                 <p>Account</p>
               </>
             ) : (

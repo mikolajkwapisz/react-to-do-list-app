@@ -7,6 +7,14 @@
     flex-direction: column;
 }
 
+.list__tasks .LOADING{
+    margin-top: 5rem;
+    text-align: center;
+    font-size: 2rem;
+    font-family: 'dm-sans-bold';
+
+}
+
 .list:first-child {
     margin-right: 4rem;
 }

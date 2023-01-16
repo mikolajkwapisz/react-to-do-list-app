@@ -1,5 +1,8 @@
 .task{
-    background-color: #99AAb5    ;
+    background: #ECE9E6;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FFFFFF, #dddada);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FFFFFF, #f8f8f8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
     margin: 1rem;
     border-radius: 15px;
     padding: 1rem;
@@ -14,6 +17,29 @@
     font-size: 1.5rem;
     font-family: 'dm-sans-regular';
     color: var(--nav-bg-secondary)
+}
+
+.task__info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.task__info--category{
+    margin-right: 1rem;
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+}
+
+.task__info--category p {
+    font-family: 'dm-sans-regular';
+    font-size: 1.5rem;
+}
+
+.task__info--category p:hover{
+    text-shadow: 1px 2px 3px var(--bg-color);
+    cursor: pointer;
 }
 
 .task__info--status{
@@ -31,4 +57,11 @@
 
 .list__tasks ul {
     list-style-type: none;
+}
+
+@media only screen and (max-width: 400px) {
+    .task--title,
+    .task__info--category p{
+        font-size: 1rem;
+    }
 }

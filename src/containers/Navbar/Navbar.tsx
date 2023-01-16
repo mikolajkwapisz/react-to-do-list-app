@@ -7,21 +7,21 @@ import { FaLock, FaUnlockAlt } from "react-icons/fa";
 import { useState } from "react";
 
 const Navbar = () => {
-  const [isLogged, setIsLogged] = useState(false);
+  const [isLogged, setIsLogged] = useState(true);
   return (
     <nav className="navbar">
       <ul className="navbar__nav">
         <li className="navbar__nav--list">
           <Link to="/" className="navbar__nav--list--link">
             <AiFillHome 
-              style={{ color: 'avr(--color-light-grey)'}}/>
+              style={{ color: 'var(--color-orange)'}}/>
             <p>List</p>
           </Link>
         </li>
         <li className="navbar__nav--list">
           <Link to="/add" className="navbar__nav--list--link">
             <BsPencilFill 
-              style={{ color: 'var(--color-light-grey)'}}/>
+              style={{ color: 'var(--color-orange)'}}/>
             <p>Add task</p>
           </Link>
         </li>
@@ -29,16 +29,16 @@ const Navbar = () => {
           <div className="navbar__nav--list--link">
             {/* DELETE ALL LIST*/}
             <MdDeleteForever 
-              style={{ color: 'var(--color-light-grey)'}}/>
+              style={{ color: 'var(--color-orange)'}}/>
             <p>Clear tasks</p>
           </div>
         </li>
         <li className="navbar__nav--list"> 
-          <div className='navbar__nav--list--link'>
+          <div className='navbar__nav--list--link account'>
             {isLogged ? (
               <>
                 <FaLock 
-                  style={{ color: 'var(--color-light-grey)'}}/>
+                  style={{ color: 'var(--color-orange)'}}/>
                 <p>Account</p>
               </>
             ) : (

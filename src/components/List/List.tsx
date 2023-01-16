@@ -1,15 +1,14 @@
-import React from 'react'
 import './list.css'
 import { TaskType } from '../../types/types'
 import {FiClipboard, FiCheckSquare} from 'react-icons/fi'
 import Task from '../Task/Task'
+import { HomeProps } from '../../containers/Pages/Home/Home'
 
-interface ListProps {
-    tasks: TaskType[],
+interface ListProps extends HomeProps {
     tasksRequiredStatus: boolean
 }
 
-const List= ( {tasks, tasksRequiredStatus}: ListProps) => {
+const List= ( {tasks, isLoading, tasksRequiredStatus}: ListProps) => {
   return (
     <>
         {
@@ -20,6 +19,7 @@ const List= ( {tasks, tasksRequiredStatus}: ListProps) => {
                         <p>To-Do</p>
                     </div>
                     <div className="list__active--tasks list__tasks">
+                        {isLoading && <p className='LOADING'>Loading ...</p>}
                         <ul>
                             { tasks.map( task => (
                                    <li key={task.id}>
@@ -40,6 +40,7 @@ const List= ( {tasks, tasksRequiredStatus}: ListProps) => {
                         <p>Done</p>
                     </div>
                     <div className='list__done--tasks list__tasks'>
+                            {isLoading && <p className='LOADING'>Loading ...</p>}
                         <ul>
                             { tasks.map( task => (
                                     <li key={task.id}>

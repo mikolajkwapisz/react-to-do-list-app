@@ -23,8 +23,10 @@
     --color-grey: #ececec;
     --color-black: #000;
     --color-dark-blue: #2B1887;
+    --color-grey: #9c9c9c;
     --color-light-grey: #99AAb5;
     --color-white: #F4F2FF;
+    --color-orange: #FF715B;
     --priority-color-high: #E42C5F;
     --priority-color-medium: #ECB800;
     --priority-color-low: #2D41A7;
@@ -50,3 +52,25 @@ a {
     text-decoration: none ;
 }
 
+/* ===== Scrollbar CSS =====
+  /* Firefox */
+  /* * {
+    scrollbar-width: auto;
+    scrollbar-color: #0d0c0d rgba(0, 0, 0, 0);
+  }
+
+  /* Chrome, Edge, and Safari */
+  /* *::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0);
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #0d0c0d;
+    border-radius: 10px;
+    border: 2px solid #ffffff;
+  }
+ */ 

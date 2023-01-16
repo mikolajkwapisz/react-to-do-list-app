@@ -1,0 +1,34 @@
+{
+    "tasks": [
+        {
+            "id": 1,
+            "title": "Chemistry",
+            "currentDay": "Monday",
+            "category": "Study",
+            "priority": "High",
+            "difficulty": 2,
+            "endDay": "Thursday",
+            "status": true
+          },
+          {
+            "id": 2,
+            "title": "Math",
+            "currentDay": "Monday",
+            "category": "Study",
+            "priority": "Low",
+            "difficulty": 3,
+            "endDay": "Friday",
+            "status": true
+          },
+          {
+            "id": 3,
+            "title": "Meth",
+            "currentDay": "Monday",
+            "category": "Study",
+            "priority": "Medium",
+            "difficulty": 1,
+            "endDay": "Monday",
+            "status": false
+          }   
+    ]
+}

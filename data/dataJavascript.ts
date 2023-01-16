@@ -3,7 +3,7 @@ import { TaskType } from "../src/types/types"
  const items: TaskType[] = [
   {
     id: 1,
-    title: 'Math homeworka aisdjoandoai sdnaoisdn aosdin ',
+    title: 'Math',
     currentDay: 'Monday',
     category: 'Study',
     priority: 'High',
@@ -32,6 +32,16 @@ import { TaskType } from "../src/types/types"
     difficulty: 1,
     endDay: 'Wednesday',
     status: false
+  },
+  {
+    id: 4,
+    title: 'Math',
+    currentDay: 'Monday',
+    category: 'Study',
+    priority: 'High',
+    difficulty: 2,
+    endDay: 'Thursday',
+    status: true
   },
 ]
 

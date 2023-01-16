@@ -1,8 +1,8 @@
-import AddTask from "./Routes/AddTask/AddTask";
-import EditTask from "./Routes/EditTask/EditTask";
-import Home from "./Routes/Home/Home";
+import AddTask from "./Pages/AddTask/AddTask";
+import EditTask from "./Pages/EditTask/EditTask";
+import Home from "./Pages/Home/Home";
 import Navbar from "./Navbar/Navbar";
-import Missing from "./Routes/Missing/Missing";
+import Missing from "./Pages/Missing/Missing";
 
 export {
     AddTask,

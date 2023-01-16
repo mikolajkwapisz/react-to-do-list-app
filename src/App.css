@@ -3,3 +3,19 @@
     background-color: var(--bg-color);
 }
 
+
+@media only screen and (max-width: 600px){
+    .main__margin {
+        margin-left: 0;
+        margin-bottom: 1rem;
+        padding: 0;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    
+    .main__margin {
+        margin-left: 5rem;
+        padding: 1rem;
+    }
+}

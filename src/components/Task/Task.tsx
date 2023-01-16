@@ -18,7 +18,7 @@ const Task = ({ task }: TaskProps) => {
               difficulty = {task.difficulty}
               endDay = {task.endDay}/>
           </div>
-          <div className="task__info--category"></div>
+          <div className="task__info--category"><p>{task.category}</p></div>
         </div>
     </div>
   )

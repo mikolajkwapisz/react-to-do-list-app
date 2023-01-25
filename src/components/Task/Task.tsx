@@ -4,21 +4,21 @@ import { TaskType } from '../../types/types'
 import TaskStatus  from './Task__status/TaskStatus'
 
 interface TaskProps {
-  task: TaskType
+  options: TaskType
 }
 
-const Task = ({ task }: TaskProps) => {
+const Task = ({ options }: TaskProps) => {
   return (
     <div className='task'>
-      <div className='task--title'>{task.title}</div>
+      <div className='task--title'>{options.title}</div>
         <div className="task__info">
           <div className="task__info--status">
             <TaskStatus  
-              priority = {task.priority}
-              difficulty = {task.difficulty}
-              endDay = {task.endDay}/>
+              priority = {options.priority}
+              difficulty = {options.difficulty}
+              endDay = {options.endDay}/>
           </div>
-          <div className="task__info--category"><p>{task.category}</p></div>
+          <div className="task__info--category"><p>{options.category}</p></div>
         </div>
     </div>
   )

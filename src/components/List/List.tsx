@@ -24,7 +24,7 @@ const List= ( {tasks, isLoading, tasksRequiredStatus}: ListProps) => {
                             { tasks.map( task => (
                                    <li key={task.id}>
                                     {task.status === tasksRequiredStatus && ( 
-                                    <Task task ={task} />
+                                    <Task options ={task} />
                                    ) 
                                }
                                </li>
@@ -45,7 +45,7 @@ const List= ( {tasks, isLoading, tasksRequiredStatus}: ListProps) => {
                             { tasks.map( task => (
                                     <li key={task.id}>
                                         {task.status === tasksRequiredStatus && ( 
-                                        <Task task ={task}
+                                        <Task options ={task}
                                         
                                         />) 
                                     }

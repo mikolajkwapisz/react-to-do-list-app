@@ -1,0 +1,117 @@
+.container {
+    font-family: 'dm-sans-regular';
+    position: relative;
+    width: 10em;
+    min-height: 1.5em;
+    border: .15em solid #141418;
+    display: flex;
+    align-items: center;
+    gap: .5em;
+    padding: .5em;
+    border-radius: .25em;
+    outline: none;
+    background-color: white;
+  }
+
+  .containerFullWidth {
+    font-family: 'dm-sans-regular';
+    position: relative;
+    width: 100%;
+    min-height: 3em;
+    border: .15em solid #141418;
+    display: flex;
+    align-items: center;
+    gap: .5em;
+    padding: .5em;
+    border-radius: .25em;
+    outline: none;
+    background-color: white;
+  }
+  
+  .container:focus {
+    border-color: #333;
+  }
+
+  .containerFullWidth:hover,
+  .container:hover{
+    cursor: pointer;
+  }
+  
+  .value {
+    flex-grow: 1;
+    display: flex;
+    gap: .5em;
+    flex-wrap: wrap;
+  }
+  
+  .clear-btn {
+    background: none;
+    color: #777;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0;
+    font-size: 1.25em;
+  }
+  
+  
+  
+  .caret {
+    translate: 0 25%;
+    border: .35em solid transparent;
+    border-top-color: var(--color-orange);
+  }
+  
+  .options {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: none;
+    max-height: 10em;
+    overflow-y: auto;
+    border: .05em solid #333;
+    border-radius: .25em;
+    width: 100%;
+    left: 0;
+    top: calc(100% + .25em);
+    background-color: white;
+    z-index: 100;
+  }
+  
+  .options.show {
+    display: block;
+  }
+  
+  .option {
+    padding: .25em .5em;
+    cursor: pointer;
+  }
+
+  
+  .option.selected {
+    background-color: var(--color-orange);
+    color: white;
+  }
+  
+  .option.highlighted {
+    background-color: var(--bg-color);
+    color: white
+  }
+  
+  .option-badge {
+    display: flex;
+    align-items: center;
+    border: .05em solid #777;
+    border-radius: .25em;
+    padding: .15em .25em;
+    gap: .25em;
+    cursor: pointer;
+    background: none;
+    outline: none;
+  }
+
+@media only screen and (min-width: 1100px ){
+  
+}
+  

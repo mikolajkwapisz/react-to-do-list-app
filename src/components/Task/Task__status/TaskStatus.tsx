@@ -14,13 +14,15 @@ interface StatusElementProps {
 
 export default function TaskStatus ({priority, difficulty, endDay}: TaskStatusProps){
   let difficultyNumber: number = difficulty
-  const color = getPriorityColor(priority)
+  const priorityColor = getPriorityColor(priority)
   const day = endDay.slice(0, 3)
   
   function checkColorStyle(): undefined | string{
+      // Checking if current difficulty block should be active 
       if(difficultyNumber > 0) {
+        // If difficultyNumber is bigger than 0 then block should be active 
         difficultyNumber--
-        return color
+        return priorityColor
       } else {
         return "#D9D9D9"
       }
@@ -32,7 +34,7 @@ export default function TaskStatus ({priority, difficulty, endDay}: TaskStatusPr
     <>
       <div 
         className='task__status--end'
-        style={{backgroundColor: `${color}`}}>{day}</div>
+        style={{backgroundColor: `${priorityColor}`}}>{day}</div>
       <div className='task__status--priority'>
 
          <StatusElement colorValue={checkColorStyle()} />

@@ -15,7 +15,7 @@
 }
 
 .add__form > *{
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .add__form div:first-child {
@@ -64,10 +64,13 @@
 }
 
 .add__form--task--selector{
-    padding: 1rem;
+    padding: 1rem 0;
 }
 
-.add__form--task--selector label{
+.add__form--task--selector label,
+.add__form--task--preview label,
+.add__form--task--category label
+{
     font-size: 1.25rem;
     font-family: 'dm-sans-regular';
 }
@@ -76,6 +79,35 @@
     margin-top: 0.5rem;
     font-size: 1.5rem;
     width: 150px;
+}
+
+.add__form--task--preview{
+    margin-top: 1rem;
+}
+
+.add__form--submit button {
+    font-family: 'dm-sans-bold';
+    background-color: var(--color-orange);
+    color: white;
+    font-size: 1.5rem;
+    padding: 10px;
+    border-radius: 5px;
+    border: 0;
+    outline: 0;
+    margin-bottom: 2rem;
+}
+
+.add__form--submit button:hover,
+.add__form--submit button:focus{
+    cursor: pointer;
+    box-shadow: 0 0 5px 1px var(--color-orange);
+}
+
+.add__form--submit{
+    flex-grow: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start; 
 }
 
 
@@ -96,6 +128,9 @@
 @media only screen and (max-width: 1100px){
     .add__form{
         width: 95%;
+    }
+    .add__form--task--specification{
+        flex-direction: column;
     }
 
 

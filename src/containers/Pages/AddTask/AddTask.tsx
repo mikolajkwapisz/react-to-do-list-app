@@ -1,9 +1,12 @@
-import React from "react";
+import { useState, useEffect, useRef } from "react";
 import "./addTask.css";
 import { BsPencilFill } from "react-icons/bs";
-import Select from 'react-select'
+import Select from '../../../components/Select/Select'
+import { SelectOption, TaskType } from "../../../types/types";
+import useWindowSize from "../../../hooks/useWindowSize";
+import { Task } from "../../../components";
 
-const endDayOptions: object[] = [
+const endDayOptions: SelectOption[] = [
   {
     value: "Monday",
     label: "Monday"
@@ -34,7 +37,7 @@ const endDayOptions: object[] = [
   },
 ];
 
-const prioAndDiffOptions: object[] = [
+const priorityOptions: SelectOption[] = [
   {
     value: 'Low',
     label: 'Low'
@@ -47,12 +50,95 @@ const prioAndDiffOptions: object[] = [
     value: 'High',
     label: 'High'
   }
+];
+
+const difficultyOptions: SelectOption[] = [
+  {
+    value: 1,
+    label: 'Low'
+  },
+  {
+    value: 2,
+    label: 'Medium'
+  },
+  {
+    value: 3,
+    label: 'High'
+  }
 ]
 
+const categoryOptions: SelectOption[] = [
+  {
+    value: 'School',
+    label: 'School'
+  },
+  {
+    value: 'Work',
+    label: 'Work'
+  },
+  {
+    value: 'Home',
+    label: 'Home'
+  },
+  {
+    value: 'Fitness',
+    label: 'Fitness'
+  },
+  {
+    value: 'Study',
+    label: 'Study'
+  },
+]
+
+const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+
+const date = new Date()
+const dayIndex = date.getDay()
+const currentDay = days[dayIndex]
+
+
+
 const AddTask = () => {
+  const [titleValue, setTitleValue] = useState('')
+  const [priorityValue, setpriorityValue] = useState< typeof priorityOptions[0] | undefined >(priorityOptions[0])
+  const [difficultyValue, setdifficultyValue] = useState< typeof difficultyOptions[0] | undefined >(difficultyOptions[0])
+  const [endDayValue, setendDayValue] = useState< typeof endDayOptions[0] | undefined >(endDayOptions[0])
+  const [categoryValue, setCategoryValue] = useState< typeof categoryOptions[0] | undefined >(categoryOptions[0])
+  const {width} = useWindowSize()
+
+
+  const [options, setOptions] = useState({
+     id: 1, 
+     title: titleValue == '' ? 'Title' :  titleValue,
+     currentDay,
+     category: categoryValue?.value,
+     priority: priorityValue?.value,
+     difficulty: difficultyValue?.value,
+     endDay: endDayValue?.value,
+     status: true
+    })
+
+    
+
+  
+  useEffect(() => {
+    setOptions({
+     id: 1, 
+     title: titleValue == '' ? 'Title' :  titleValue,
+     currentDay,
+     category: categoryValue?.value,
+     priority: priorityValue?.value,
+     difficulty: difficultyValue?.value,
+     endDay: endDayValue?.value,
+     status: true
+    })
+
+  }, [titleValue, priorityValue, difficultyValue, endDayValue, categoryValue])
+
+
   return (
     <main className="add main__margin ">
-      <form className="add__form">
+      <form className="add__form" onSubmit={(e) => e.preventDefault}>
         <div className="add__title">
           <h1>
             {" "}
@@ -61,46 +147,62 @@ const AddTask = () => {
         </div>
         <div className="add__form--task--name">
           <label htmlFor="task">Title</label>
-          <input type="text" placeholder="Enter your task title" required />
+          <input 
+            type="text" required placeholder="Enter your task title"
+            value={titleValue}
+            onChange={ (e) => setTitleValue(e.target.value)}/>
         </div>
         <div className="add__form--task--specification">
           <div className="add__form--task--selector add__form--priority">
             <label htmlFor="priority">Priority</label>
             <Select 
-              className="selectBox"
-              name="priority" 
-              id="add__form--priority" 
-              options={prioAndDiffOptions}/>
-
+              options={priorityOptions}
+              value={priorityValue}
+              onChange = {o => setpriorityValue(o)}
+              fullWidth = { width < 1100 ? true : false}
+              hoverColor = 'var(--color-orange)'
+               />
           </div>
           <div className="add__form--task--selector add__form--endDay">
             <label htmlFor="end">Ending date</label>
             <Select 
-              className="selectBox"
-              name="end" 
-              id="add__form--endDay"
-              options={endDayOptions}/>
+              options={endDayOptions}
+              value={endDayValue}
+              onChange = {o => setendDayValue(o)}
+              fullWidth = { width < 1100 ? true : false}
+              hoverColor = 'var(--color-orange)'
+               />
           </div>
           <div className="add__form--task--selector add__form--difficulty">
             <label htmlFor="difficulty">Difficulty</label>
             <Select 
-              className="selectBox"
-              name="difficulty" 
-              id="add__form--difficulty"
-              options={prioAndDiffOptions}
-              styles= {{
-                control: (baseStyles, state) => ({
-                  ...baseStyles,
-                  borderColor: state.hover ? 'var(--color-orange)' : 'var(--nav-bg-secondary)',
-                  
-                })
-              }}
-              />
+              options={difficultyOptions}
+              value={difficultyValue}
+              onChange = {o => setdifficultyValue(o)}
+              fullWidth = { width < 1100 ? true : false}
+              hoverColor = 'var(--color-orange)'
+               />
           </div>
         </div>
-        <div className="add__form--task--category"></div>
-        <div className="add__form--task--preview"></div>
-        <div className="add__form--submit"></div>
+        <div className="add__form--task--category">
+          <label htmlFor="category">Category</label>
+          <Select 
+              options={categoryOptions}
+              value={categoryValue}
+              onChange = {o => setCategoryValue(o)}
+              fullWidth = {true}
+              hoverColor = 'var(--color-orange)'
+               />
+        </div>
+        <div className="add__form--task--preview">
+          <label htmlFor="preview">Preview</label>
+          <Task
+            options = {options}/>
+
+        </div>
+        <div className="add__form--submit">
+          <button>Submit</button>
+        </div>
       </form>
     </main>
   );

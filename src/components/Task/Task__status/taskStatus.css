@@ -19,7 +19,29 @@
     font-family: 'dm-sans-bold';
 }
 
-@media only screen and (max-width: 400px){
+@media only screen and (min-width: 1100px){
+    .task__status--priority {
+        margin-left: 1rem;
+    
+    }
+}
+
+@media only screen and (max-width: 1100px){
+    .task__status--priority {
+        margin-left: 0.25rem;
+    
+    }
+
+}
+
+@media only screen and (max-width: 450px){
+
+    .task__status--priority {
+        margin-left: 0;
+        justify-content: center;
+    
+    }
+
     .task__status--end{
         font-size: 0.75rem;
     }
@@ -31,6 +53,6 @@
     }
 
     .task__status--priority div:first-child{
-        margin-left: 1rem;
+        margin-left: rem;
     }
 }

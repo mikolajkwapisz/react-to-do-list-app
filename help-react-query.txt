@@ -1,0 +1,73 @@
+import { JSXElementConstructor, Key, ReactElement, ReactFragment, ReactPortal, useState } from 'react'
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
+import { getPosts, addPost, deletePost} from "./api/postApi.js"
+import './App.css'
+
+
+
+getPosts
+
+function App() {
+  const [ newItemTitle, setNewItemTitle] = useState('')
+
+  const queryClient = useQueryClient()
+  
+
+  const postsQuery = useQuery(['posts'], getPosts)
+
+
+
+const newPostMutation = useMutation(addPost, {
+  onSuccess: () => {
+    queryClient.invalidateQueries(['posts'])
+  }
+})
+
+const deletePostMutation = useMutation(deletePost, {
+  onSuccess: () => {
+    queryClient.invalidateQueries(['posts'])
+  }
+})
+
+function newPost () {
+  const id = postsQuery.data[0] == undefined ? 1 : (postsQuery.data[ postsQuery.data.length - 1].id + 1)
+  const title = newItemTitle ? newItemTitle : "Title"
+  setNewItemTitle('')
+  
+  return { id, title }
+}
+    
+
+    
+    
+  if(postsQuery.isLoading) return <h1>Loading ...</h1>
+  if(postsQuery.isError) return <h1>Error</h1>
+
+
+  return (
+    <div className="App">
+      <input 
+        type="text"
+        value={newItemTitle}
+        onChange={ (e) => setNewItemTitle(e.target.value)}
+         />
+      <button onClick={() => newPostMutation.mutate(newPost()) }>Add Post</button>
+      <ul>
+      {(postsQuery.data).map(( post: { id: Key | null | undefined; title: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined }) => (
+        <li key={post.id} style={{display: 'flex', gap: "2rem"}}>
+          <div>{post.title}</div>
+          <button onClick={ () => deletePostMutation.mutate(post)}>Delete</button>
+
+        </li>
+      ))}
+
+      </ul>
+    </div>
+  )
+}
+
+
+
+
+
+export default App

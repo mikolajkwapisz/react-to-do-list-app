@@ -159,6 +159,7 @@ const CreateTask = ({ newId}: CreateTaskProps) => {
           <input 
             type="text"
             placeholder="Enter your task title"
+            maxLength={30}
             value={titleValue}
             onChange={ (e) => setTitleValue(e.target.value)}/>
         </div>

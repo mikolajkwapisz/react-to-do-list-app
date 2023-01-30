@@ -3,6 +3,10 @@
     background-color: var(--bg-color);
 }
 
+.p__center{
+  text-align: center;
+}
+
 /* ===== Scrollbar CSS ===== */
   /* Firefox */
   * {

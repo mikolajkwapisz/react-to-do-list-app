@@ -3,12 +3,18 @@ import { TaskType } from '../../types/types'
 import {FiClipboard, FiCheckSquare} from 'react-icons/fi'
 import Task from '../Task/Task'
 import { HomeProps } from '../../containers/Pages/Home/Home'
+import { useQueryMutation } from '../../context/QueryContext'
 
 interface ListProps extends HomeProps {
     tasksRequiredStatus: boolean
 }
 
-const List= ( {tasks, isLoading, tasksRequiredStatus}: ListProps) => {
+const List= ( {tasks, tasksRequiredStatus}: ListProps) => {
+    const { isLoading} = useQueryMutation()
+    const filteredTasks = tasks.filter( task => task.status == tasksRequiredStatus)
+    console.log(filteredTasks)
+
+
   return (
     <>
         {
@@ -21,8 +27,10 @@ const List= ( {tasks, isLoading, tasksRequiredStatus}: ListProps) => {
                     <div className="list__active--tasks list__tasks">
                         {isLoading && <p className='LOADING'>Loading ...</p>}
                         <ul>
-                            { tasks.map( task => (
-                                   <li key={task.id}>
+                            { filteredTasks.length == 0 ? <h1 className='LOADING'>Empty list</h1> : tasks.map( task => (
+                                   <li 
+                                    key={task.id}
+                                    className = "list__active--tasks--li">
                                     {task.status === tasksRequiredStatus && ( 
                                     <Task options ={task} />
                                    ) 
@@ -42,7 +50,7 @@ const List= ( {tasks, isLoading, tasksRequiredStatus}: ListProps) => {
                     <div className='list__done--tasks list__tasks'>
                             {isLoading && <p className='LOADING'>Loading ...</p>}
                         <ul>
-                            { tasks.map( task => (
+                            { filteredTasks.length == 0 ? <h1 className='LOADING'>Empty list</h1> : tasks.map( task => (
                                     <li key={task.id}>
                                         {task.status === tasksRequiredStatus && ( 
                                         <Task options ={task}

@@ -1,10 +1,16 @@
 import { useState, useEffect, useRef } from "react";
-import "./addTask.css";
+import "./createTask.css";
 import { BsPencilFill } from "react-icons/bs";
 import Select from '../../../components/Select/Select'
 import { SelectOption, TaskType } from "../../../types/types";
 import useWindowSize from "../../../hooks/useWindowSize";
-import { Task } from "../../../components";
+import { TaskPreview } from "../../../components";
+import { useNavigate } from "react-router-dom";
+import { useQueryMutation } from "../../../context/QueryContext";
+
+interface CreateTaskProps {
+  newId: number
+}
 
 const endDayOptions: SelectOption[] = [
   {
@@ -98,17 +104,19 @@ const currentDay = days[dayIndex]
 
 
 
-const AddTask = () => {
+const CreateTask = ({ newId}: CreateTaskProps) => {
   const [titleValue, setTitleValue] = useState('')
   const [priorityValue, setpriorityValue] = useState< typeof priorityOptions[0] | undefined >(priorityOptions[0])
   const [difficultyValue, setdifficultyValue] = useState< typeof difficultyOptions[0] | undefined >(difficultyOptions[0])
   const [endDayValue, setendDayValue] = useState< typeof endDayOptions[0] | undefined >(endDayOptions[0])
   const [categoryValue, setCategoryValue] = useState< typeof categoryOptions[0] | undefined >(categoryOptions[0])
   const {width} = useWindowSize()
+  const navigate = useNavigate()
+  const { addTaskMutation } = useQueryMutation()
 
 
   const [options, setOptions] = useState({
-     id: 1, 
+     id: newId, 
      title: titleValue == '' ? 'Title' :  titleValue,
      currentDay,
      category: categoryValue?.value,
@@ -118,12 +126,10 @@ const AddTask = () => {
      status: true
     })
 
-    
-
   
   useEffect(() => {
     setOptions({
-     id: 1, 
+     id: newId, 
      title: titleValue == '' ? 'Title' :  titleValue,
      currentDay,
      category: categoryValue?.value,
@@ -138,7 +144,10 @@ const AddTask = () => {
 
   return (
     <main className="add main__margin ">
-      <form className="add__form" onSubmit={(e) => e.preventDefault}>
+      <form className="add__form" onSubmit={(e) => {
+        e.preventDefault()
+        navigate("/")
+        }}>
         <div className="add__title">
           <h1>
             {" "}
@@ -148,7 +157,8 @@ const AddTask = () => {
         <div className="add__form--task--name">
           <label htmlFor="task">Title</label>
           <input 
-            type="text" required placeholder="Enter your task title"
+            type="text"
+            placeholder="Enter your task title"
             value={titleValue}
             onChange={ (e) => setTitleValue(e.target.value)}/>
         </div>
@@ -196,16 +206,17 @@ const AddTask = () => {
         </div>
         <div className="add__form--task--preview">
           <label htmlFor="preview">Preview</label>
-          <Task
+          <TaskPreview
             options = {options}/>
 
         </div>
         <div className="add__form--submit">
-          <button>Submit</button>
+          <button
+            onClick={ () => addTaskMutation.mutate(options)}>Submit</button>
         </div>
       </form>
     </main>
   );
 };
 
-export default AddTask;
+export default CreateTask;

@@ -1,28 +1,27 @@
 import './home.css'
 import { List} from '../../../components/index'
 import { TaskType } from '../../../types/types'
+import { useContext } from 'react'
+import QueryContext from '../../../context/QueryContext'
 
 
 export interface HomeProps {
   tasks: TaskType[],
-  isLoading: boolean
 }
 
 
 
-const Home = ( {tasks, isLoading}: HomeProps ) => {
+const Home = ( {tasks}: HomeProps ) => {
   return (
     <main className='home main__margin'>
       <div className="home__tables">
         { /* If tasksStatus is true then tasks are still active*/} 
         <List 
           tasks={tasks}
-          isLoading = {isLoading}
           tasksRequiredStatus = {true}
         />
         <List 
           tasks={tasks}
-          isLoading = {isLoading}
           tasksRequiredStatus = {false}
         />
       </div>

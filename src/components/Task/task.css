@@ -12,11 +12,32 @@
     flex-direction: column;
 }
 
-.task--title{
+.task__status{
+    display: flex;
+    align-items: center ;
+}
+
+.task__status--title{
     margin-left: 0.3rem;
     font-size: 1.5rem;
     font-family: 'dm-sans-regular';
-    color: var(--nav-bg-secondary)
+    color: var(--nav-bg-secondary);
+}
+
+.task__status--icons{
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.task__status--icons svg{ 
+    font-size: 2rem;
+    margin-right: 1rem;
+}
+
+.task__status--icons svg:hover{
+    cursor: pointer;
+    color: var(--color-orange);
 }
 
 .task__info{

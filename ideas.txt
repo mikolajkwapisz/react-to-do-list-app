@@ -1,0 +1,2 @@
+Create searchbox next to List titles 
+Add onclick on category that will search for every task with searched category on serachbox

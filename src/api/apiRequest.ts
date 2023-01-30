@@ -1,18 +1,24 @@
-// interface apiRequestProps {
-//     url: string,
-//     options?: object | undefined ,
-//     errMsg?: string | null | unknown
-// }
+import axios from "axios";
+import { TaskType } from "../types/types";
 
-// export default async function apiRequest( url = '', options = undefined, errMsg = null ): Promise<apiRequestProps> {
-//     try {
-//         const response = await fetch(url, options)
-//         if(!response.ok) throw new Error('Please reload the app')
-//     } catch (error) {
-//         errMsg = error;
-//     }finally{
-//         return errMsg
-//     }
-// }
+const postsApi  = axios.create({
+    baseURL: 'http://localhost:3500'
+})
 
-export {}
+export const getTasks = async () => {
+    const res = await postsApi.get("/tasks")
+    return res.data
+}
+
+export const addTask = async (task: TaskType) => {
+    return await postsApi.post(`/tasks`, task)
+}
+
+export const deleteTask = async (id: any) => {
+    return await postsApi.delete(`/tasks/${id}`, id)
+}
+
+export const updateTask = async (task: TaskType) => {
+    return await postsApi.patch(`/tasks/${task.id}`, task)
+}
+

@@ -12,7 +12,6 @@ interface ListProps extends HomeProps {
 const List= ( {tasks, tasksRequiredStatus}: ListProps) => {
     const { isLoading} = useQueryMutation()
     const filteredTasks = tasks.filter( task => task.status == tasksRequiredStatus)
-    console.log(filteredTasks)
 
 
   return (

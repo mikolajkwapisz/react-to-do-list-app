@@ -10,7 +10,6 @@ import { useQueryMutation } from "./context/QueryContext";
 function App() {
   
   const { status, data, error} = useQueryMutation()
-  console.log(data)
 
 
   if(status === "loading") return <h1 className="p__center">Loading ...</h1>

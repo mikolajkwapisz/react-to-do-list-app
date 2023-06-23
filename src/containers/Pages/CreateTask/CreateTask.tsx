@@ -157,6 +157,7 @@ const CreateTask = ({ newId}: CreateTaskProps) => {
         <div className="add__form--task--name">
           <label htmlFor="task">Title</label>
           <input 
+            autoFocus
             type="text"
             placeholder="Enter your task title"
             maxLength={30}

@@ -2,6 +2,8 @@ import "./App.css";
 import { CreateTask, EditTask, Home, Navbar,  Missing } from "./containers";
 import { Route, Routes } from "react-router-dom";
 import { useQueryMutation } from "./context/QueryContext";
+import { useState } from "react";
+import { DeleteContainer } from "./components";
 
 
 
@@ -10,17 +12,23 @@ import { useQueryMutation } from "./context/QueryContext";
 function App() {
   
   const { status, data, error} = useQueryMutation()
+  const [isDeleteContainerVisible, setIsDeleteContainerVisible] = useState(false)
+  console.log(data)
+
 
 
   if(status === "loading") return <h1 className="p__center">Loading ...</h1>
-  if(error) return <h1>{JSON.stringify(error)}</h1>
+  if(error) return <h1 style={{textAlign: "center"}}>Failed to fetch data</h1>
   
 
   
   return (
     <div className="App">
 
-      <Navbar />
+      <div className="App__main">
+      <Navbar setIsDeleteContainerVisible={setIsDeleteContainerVisible}/>
+      <DeleteContainer isVisible ={isDeleteContainerVisible} setIsVisible = {setIsDeleteContainerVisible} data={data}/>
+      </div>
 
       <Routes>
           <Route path="/" element={

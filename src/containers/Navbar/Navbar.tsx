@@ -5,9 +5,18 @@ import { BsPencilFill } from "react-icons/bs";
 import { MdDeleteForever } from "react-icons/md";
 import { FaLock, FaUnlockAlt } from "react-icons/fa";
 import { useState } from "react";
+import { DeleteContainer } from "../../components";
 
-const Navbar = () => {
+interface NavbarProps{
+  setIsDeleteContainerVisible: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const Navbar = ({ setIsDeleteContainerVisible}: NavbarProps) => {
   const [isLogged, setIsLogged] = useState(true);
+
+  function changeVisibility () {
+    setIsDeleteContainerVisible( prev => !prev)
+  }
   return (
     <nav className="navbar">
       <ul className="navbar__nav">
@@ -26,10 +35,11 @@ const Navbar = () => {
           </Link>
         </li>
         <li className="navbar__nav--list">
-          <div className="navbar__nav--list--link">
+          <div className="navbar__nav--list--link" onClick={changeVisibility}>
             {/* DELETE ALL LIST*/}
             <MdDeleteForever 
-              style={{ color: 'var(--color-orange)'}}/>
+              style={{ color: 'var(--color-orange)'}}
+              />
             <p>Clear tasks</p>
           </div>
         </li>
@@ -51,6 +61,7 @@ const Navbar = () => {
           </div>
         </li>
       </ul>
+      
     </nav>
   );
 };

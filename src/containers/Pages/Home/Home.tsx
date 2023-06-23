@@ -1,8 +1,6 @@
 import './home.css'
 import { List} from '../../../components/index'
 import { TaskType } from '../../../types/types'
-import { useContext } from 'react'
-import QueryContext from '../../../context/QueryContext'
 
 
 export interface HomeProps {

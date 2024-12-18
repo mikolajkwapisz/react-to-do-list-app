@@ -39,7 +39,7 @@ function App() {
 
         <Route path="/add" element={
           <CreateTask 
-          newId = {data.length == 0 ? 1 : (data[ data.length -1 ].id + 1) }
+            newId = {data.length == 0 ? "1" : (Number(data[ data.length -1 ].id) + 1).toString()  }
           />
         } />
         <Route path="/edit/:id" element={<EditTask />} />

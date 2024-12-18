@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { useQueryMutation } from "../../../context/QueryContext";
 
 interface CreateTaskProps {
-  newId: number
+  newId: any
 }
 
 const endDayOptions: SelectOption[] = [
